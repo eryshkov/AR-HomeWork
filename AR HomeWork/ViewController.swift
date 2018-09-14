@@ -17,6 +17,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+        
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -25,6 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
+    
         
         // Set the scene to the view
         sceneView.scene = scene
