@@ -14,10 +14,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    func addDebugOption(_ option: SCNDebugOptions) {
+        
+        sceneView.debugOptions.insert(option)
+    }
+    
+    func removeDebugOption(_ option: SCNDebugOptions) {
+        
+        sceneView.debugOptions.remove(option)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin]
+//        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, .showFeaturePoints, .showBoundingBoxes]
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -75,4 +85,36 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+    
+    @IBAction func optionsButtonPressed(_ sender: UIButton) {
+        func switchButton (_ option: SCNDebugOptions) {
+            if sender.tag == 0 {
+                addDebugOption(option)
+                sender.tag = 1
+                sender.setTitleColor(.yellow, for: .normal)
+            }else {
+                removeDebugOption(option)
+                sender.tag = 0
+                sender.setTitleColor(.blue, for: .normal)
+            }
+        }
+        
+        switch sender.titleLabel?.text {
+        case "showBoundingBoxes":
+            switchButton(.showBoundingBoxes)
+        case "showWorldOrigin":
+            switchButton(.showWorldOrigin)
+        case "showFeaturePoints":
+            switchButton(.showFeaturePoints)
+        case "renderAsWireframe":
+            switchButton(.renderAsWireframe)
+        case "showWireframe":
+            switchButton(.showWireframe)
+        case "showLightInfluences":
+            switchButton(.showLightInfluences)
+        default:
+            break
+        }
+    }
+    
 }
