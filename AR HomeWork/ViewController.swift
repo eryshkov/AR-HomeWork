@@ -14,16 +14,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    func addDebugOption(_ option: SCNDebugOptions) {
-        
-        sceneView.debugOptions.insert(option)
-    }
-    
-    func removeDebugOption(_ option: SCNDebugOptions) {
-        
-        sceneView.debugOptions.remove(option)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,11 +79,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func optionsButtonPressed(_ sender: UIButton) {
         func switchButton (_ option: SCNDebugOptions) {
             if sender.tag == 0 {
-                addDebugOption(option)
+                sceneView.debugOptions.insert(option)
                 sender.tag = 1
                 sender.setTitleColor(.yellow, for: .normal)
             }else {
-                removeDebugOption(option)
+                sceneView.debugOptions.remove(option)
                 sender.tag = 0
                 sender.setTitleColor(.blue, for: .normal)
             }
