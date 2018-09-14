@@ -5,18 +5,18 @@ AR HomeWork for Swift Developer Stage 3
 
 Discovered sceneView.debugOptions are:
 
-showFeaturePoints
+**showFeaturePoints**
 Отображает облако точек показывающее промежуточные результаты анализа сцены, который использует ARKit для того чтобы отслеживать позицию устройства
 
-showWorldOrigin
+**showWorldOrigin**
 Отображает ось координат визуализации, показывая позицию и ориентацию мира дополненной реальности
 
-renderAsWireframe
+**renderAsWireframe**
 Показывать только каркас для геометрии на сцене
 
-showWireframe
+**showWireframe**
 Display geometries in the scene with wireframe rendering.
 Показывать геометрии на сцене с визуализацией каркаса
 
-showLightInfluences
+**showLightInfluences**
 Показать местоположение каждого объекта SCNLight на сцене
